@@ -107,9 +107,9 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
   }
 
   for(auto it=servidores.begin(); it< servidores.end(); it++){
-    if(it->serv_name == nome){
-      if(it->owner == owner){
-        it->serv_desc = descricao;
+    if(it->get_serv_name() == nome){
+      if(it->get_owner() == owner){
+        it->set_disc(descricao);
         return "Descrição do servidor modificada!";
       }
       else{
