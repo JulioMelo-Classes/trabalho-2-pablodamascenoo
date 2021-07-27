@@ -41,9 +41,10 @@ string Sistema::login(const string email, const string senha) {
 
 string Sistema::disconnect(int id) {
 
+  /* Criar uma função para substituir isso */
 
   auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
-    if(entrada.first == id){ /* Criar uma função para substituir isso */ 
+    if(entrada.first == id){  
       return true;
     }
     else{
@@ -64,9 +65,10 @@ string Sistema::create_server(int id, const string nome) {
 
   string owner;
 
+  /* Criar uma função para substituir isso */
   auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
     if(entrada.first == id){
-      owner = entrada.second.first;/* Criar uma função para substituir isso */ 
+      owner = entrada.second.first; 
       return true;
     }
     else{
@@ -77,7 +79,7 @@ string Sistema::create_server(int id, const string nome) {
   if(it != usuariosLogados.end()){
     Servidor server(nome, owner);
     servidores.push_back(server);
-    return "Servidor Criado";
+    return "Servidor Criado";    /* Adicionar exceção para servidor já existente */
   }
   else{
     return "Usuário não está logado";
@@ -85,7 +87,38 @@ string Sistema::create_server(int id, const string nome) {
 }
 
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
-  return "set_server_desc NÃO IMPLEMENTADO";
+
+  string owner;
+  string response;
+
+  /* Criar uma função para substituir isso */
+    auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
+    if(entrada.first == id){
+      owner = entrada.second.first; 
+      return true;
+    }
+    else{
+      return false; 
+    }
+  });
+
+  if(it == usuariosLogados.end()){
+      return "Usuário não está logado";
+  }
+
+  for(auto it=servidores.begin(); it< servidores.end(); it++){
+    if(it->serv_name == nome){
+      if(it->owner == owner){
+        it->serv_desc = descricao;
+        return "Descrição do servidor modificada!";
+      }
+      else{
+        return "Você não pode alterar a descrição de um servidor que não foi criado por você";
+      }
+    }
+  }
+
+  return "Servidor não encontrado";
 }
 
 string Sistema::set_server_invite_code(int id, const string nome, const string codigo) {
