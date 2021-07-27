@@ -43,12 +43,11 @@ string Sistema::disconnect(int id) {
 
 
   auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
-    if(entrada.first == id){
-      usuariosLogados.erase(id);
+    if(entrada.first == id){ /* Criar uma função para substituir isso */ 
       return true;
     }
     else{
-      return false;
+      return false; 
     }
   });
 
@@ -57,12 +56,32 @@ string Sistema::disconnect(int id) {
     return "Usuário desconectado";
   }
   else{
-    return "Usuário não encontrado";
+    return "Usuário não está logado";
   }
 }
 
 string Sistema::create_server(int id, const string nome) {
-  return "create_server NÃO IMPLEMENTADO";
+
+  string owner;
+
+  auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
+    if(entrada.first == id){
+      owner = entrada.second.first;/* Criar uma função para substituir isso */ 
+      return true;
+    }
+    else{
+      return false; 
+    }
+  });
+
+  if(it != usuariosLogados.end()){
+    Servidor server(nome, owner);
+    servidores.push_back(server);
+    return "Servidor Criado";
+  }
+  else{
+    return "Usuário não está logado";
+  }
 }
 
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
