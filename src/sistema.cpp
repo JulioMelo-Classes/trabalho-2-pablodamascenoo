@@ -17,15 +17,48 @@ string Sistema::create_user (const string email, const string senha, const strin
 
   usuarios.push_back(user);
 
-  return "User criado";
+  return "User criado";  /* Falta criar as exceções para erros */
 }
 
 string Sistema::login(const string email, const string senha) {
-  return "login NÃO IMPLEMENTADO";
+
+  pair<string, string> user = {email, senha};
+
+  for(auto i=usuarios.begin(); i<usuarios.end(); i++){
+
+    if(i->email == email){
+      if(i->senha == senha){
+        usuariosLogados.insert({usuariosLogados.size(), user});
+        return "Logado com sucesso!";/* Falta criar as exceções para erros */
+      }
+      else if(i->senha != senha){
+        return "Senha incorreta!";
+      }
+    }
+  }
+  return "Usuário não encontrado";
 }
 
 string Sistema::disconnect(int id) {
-  return "disconnect NÃO IMPLEMENTADO";
+
+
+  auto it = find_if(usuariosLogados.begin(), usuariosLogados.end(), [&](pair<int, pair<string, string>> entrada){
+    if(entrada.first == id){
+      usuariosLogados.erase(id);
+      return true;
+    }
+    else{
+      return false;
+    }
+  });
+
+  if(it != usuariosLogados.end()){
+    usuariosLogados.erase(id);
+    return "Usuário desconectado";
+  }
+  else{
+    return "Usuário não encontrado";
+  }
 }
 
 string Sistema::create_server(int id, const string nome) {
