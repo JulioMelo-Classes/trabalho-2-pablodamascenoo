@@ -1,6 +1,11 @@
 #ifndef SERVIDOR_H
 #define SERVIDOR_H
 
+/*
+CP1 classe servidor 60%
+Tirei pontos pois vc implemetou tudo no .h
+O owner tem que ser int e não uma string
+*/
 class Servidor{
 	/*
 		TODO implementação dos atributos e métodos

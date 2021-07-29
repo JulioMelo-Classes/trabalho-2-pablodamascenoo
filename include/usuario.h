@@ -4,6 +4,11 @@
 #include <string>
 
 
+/*
+CP1 classe usuário 60%
+o mesmo problema da classe servidor
+faltou o atributo id!
+*/
 class Usuario{
 	/*
 		TODO implementação dos atributos e métodos

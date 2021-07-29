@@ -11,6 +11,11 @@ string Sistema::quit() {
   return "Saindo...";
 }
 
+/*
+A1.2 50%
+Faltou verificar se o usuário com aquele email já existe!
+Faltou criar um id para o usuário!
+*/
 string Sistema::create_user (const string email, const string senha, const string nome) {
 
   Usuario user(email, senha, nome);
@@ -20,6 +25,10 @@ string Sistema::create_user (const string email, const string senha, const strin
   return "User criado";  /* Falta criar as exceções para erros */
 }
 
+/*
+A1.3 70%
+A map usuários logados não foi usada corretamente
+*/
 string Sistema::login(const string email, const string senha) {
 
   pair<string, string> user = {email, senha};
@@ -28,6 +37,7 @@ string Sistema::login(const string email, const string senha) {
 
     if(i->email == email){
       if(i->senha == senha){
+        /*Você usou essa map da forma errada, aqui a chave é o id do usuário e não a quantidade de usuários logados*/
         usuariosLogados.insert({usuariosLogados.size(), user});
         return "Logado com sucesso!";/* Falta criar as exceções para erros */
       }
@@ -39,6 +49,10 @@ string Sistema::login(const string email, const string senha) {
   return "Usuário não encontrado";
 }
 
+/*
+A2.1 ok
+Vou considerar, mas veja que nesse caso vc considerou o id como sendo o id do usuário
+*/
 string Sistema::disconnect(int id) {
 
   /* Criar uma função para substituir isso */
@@ -61,6 +75,11 @@ string Sistema::disconnect(int id) {
   }
 }
 
+/*
+A2.2 70%
+Faltou verificar se o servidor já exsite!
+Mesmo estando errada a ideia de owner como sendo string vou considerar...
+*/
 string Sistema::create_server(int id, const string nome) {
 
   string owner;
@@ -86,6 +105,10 @@ string Sistema::create_server(int id, const string nome) {
   }
 }
 
+/*
+A2.3 ok
+Vou desconsiderar o problema de owner não ser int
+*/
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
 
   string owner;
