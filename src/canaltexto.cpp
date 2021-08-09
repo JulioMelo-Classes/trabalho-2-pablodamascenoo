@@ -32,3 +32,7 @@ void CanalTexto::show_messages(vector<Usuario> usuarios){
         it_msg->show_message();
     }
 }
+
+int CanalTexto::msg_number(){
+	return messages.size();
+}

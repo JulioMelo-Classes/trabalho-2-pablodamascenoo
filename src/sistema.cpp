@@ -38,7 +38,7 @@ string Sistema::create_user (const string email, const string senha, const strin
 
   usuarios.push_back(user);
 
-  return "User criado";
+  return "User criado\n";
 }
 
 string Sistema::login(const string email, const string senha) {

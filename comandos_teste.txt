@@ -1,29 +1,46 @@
 create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes
 create-user isaacfranco@imd.ufrn.br senhalegal Isaac Franco Fernandes
+login isaacfranco@imd.ufrn.br senhaerrada
 login isaacfranco@imd.ufrn.br senhalegal
 login isaacfranco@imd.ufrn.br senhalegal
-create-user pablo@gmail.com senha pablo damasceno
-login pablo@gmail.com senha
+disconnect 1
+disconnect 0
+login isaacfranco@imd.ufrn.br senhalegal
+create-server 0 servidor-legal
 create-server 0 servidor-legal
 create-server 0 servidor-massa
-create-server 0 servidor-irado
+create-server 1 servidor-irado
+create-user pablo@gmail.com senha pablo damasceno
+login pablo@gmail.com senha
+set-server-desc 1 servidor-legal não é o meu servidor
 set-server-desc 0 servidor-legal Um servidor muito banaca e coisa e tal
+set-server-desc 0 servidor-inexistente não existo
+set-server-invite-code 1 servidor-legal 321
 set-server-invite-code 0 servidor-legal 321
 set-server-invite-code 0 servidor-legal
+set-server-invite-code 0 servidor-legal 321
 list-servers 0
 remove-server 0 servidor-inexistente
+remove-server 1 servidor-massa
 remove-server 0 servidor-massa
 list-servers 0
 enter-server 0 servidor-legal
+enter-server 0 servidor-legal
 enter-server 1 servidor-legal
+enter-server 1 servidor-legal 123
+enter-server 1 servidor-legal 321
 list-participants 0
 leave-server 1 servidor-massa
 leave-server 1 servidor-legal
 create-channel 1 canal-legal
 create-channel 0 canal-legal
+create-channel 0 canal-legal
 enter-channel 0 canal-legal
+list-channels 0
+send-message 0 mensagem massa
+send-message 1 o dolar tá caro
+send-message 0 brasil tá difícil D:
 list-messages 0
 disconnect 0
-send-message 0 mensagem massa
-send-message 0 o dolar tá caro
-send-message 0 brasil tá difícil D:
+quit
+não vai chegar até aqui já que vai parar no quit
