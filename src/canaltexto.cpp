@@ -22,13 +22,15 @@ void CanalTexto::add_message(string message, int id){
 
 void CanalTexto::show_messages(vector<Usuario> usuarios){
 
+    auto it_user = usuarios.begin();
+
     for(auto it_msg = messages.begin(); it_msg!=messages.end(); it_msg++){
-        for(auto it_user = usuarios.begin(); it_user!=usuarios.end(); it_user++){
+        for(it_user = usuarios.begin(); it_user!=usuarios.end(); it_user++){
             if(it_msg->getOwnerId() == it_user->get_user_id()){
-                cout<<it_user->get_user_name();
                 break;
             }
         }
+        cout<<it_user->nome<<endl;
         it_msg->show_message();
     }
 }

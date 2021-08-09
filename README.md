@@ -1,18 +1,14 @@
-# Base para a atividade 02 de LP1
+# Concordo
 
-Use esse esqueleto de classes para iniciar a terceira atividade.
 
-Existe um executor que faz a interpretação dos comandos e executa o método correto do sistema.
+* [Compilação](#compilação)
+* [Execução](#execução)
+* [Testes](#testes)
 
-## Para compilar
+## Compilação
 
-Com makefiles:
-```console
-mkdir build
-make
-```
 
-Com cmake:
+Digite no terminal para compilar com cmake:
 ```console
 mkdir build
 cd build
@@ -20,15 +16,21 @@ cmake ..
 cmake --build .
 ```
 
-Escolha uma das duas formas de build e ignore a outra.
 
-## Para executar
-Você pode rodar o sistema e em logo depois digitar os comandos seguidos de ENTER
+## Execução
+
+Para executar o programa, dentro da pasta build digite o seguinte comando:
 ```console
 ./concordo
 ```
 
-Ou pode criar um arquivo de texto com uma lista de comandos (um por linha) e executar o sistema redirecionando esse arquivo como entrada padrão:
+Após isso digite os comandos do concordo seguidos de ENTER.
+
+## Testes
+
+Ao invés de executar o programa digitando linha a linha, execute a sequência de testes presentes no arquivo comandos_teste.txt pelo seguinte comando ainda dentro da pasta build:
 ```console
-./concordo < script_comandos.txt
+./concordo < ../comandos_teste.txt
 ```
+
+Você pode criar seus próprios casos de teste, basta especificar a rota onde está o arquivo especificado.
