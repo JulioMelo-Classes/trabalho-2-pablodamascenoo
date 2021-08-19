@@ -181,7 +181,12 @@ string Sistema::remove_server(int id, const string nome) {
 
   return "servidor não encontrado";
 }
-
+/*
+A2.7 0,6
+Quando um usuário usa enter-server você deve atualizar o servidor que ele está visualizando, mesmo que ele já esteja como participante
+daquele servidor! tirei 20% por isso
+Quando eu uso enter-server com um usuário não existente no sistema dá segfault! 20% a menos
+*/
 string Sistema::enter_server(int id, const string nome, const string codigo) {
 
   if(iterador(usuariosLogados, id) == usuariosLogados.end()){
@@ -211,6 +216,9 @@ string Sistema::enter_server(int id, const string nome, const string codigo) {
   return "Servidor não encontrado";
 }
 
+/*
+A2.8 ok
+*/
 string Sistema::leave_server(int id, const string nome) {
 
   if(iterador(usuariosLogados, id) == usuariosLogados.end()){
@@ -232,6 +240,11 @@ string Sistema::leave_server(int id, const string nome) {
   return "Servidor não encontrado";
 }
 
+/*
+A2.9 0,7
+- Aqui quando você recebe um usuário inexistente ou não logado o sistema exibe como se fosse o primeiro usuário! 20%  a menos
+- Quando o usuário usa list-participants em um servidor vazio, nada é exibido, vou tirar 10% por isso!
+*/
 string Sistema::list_participants(int id) {
 
   auto user = iterador(usuariosLogados, id);
@@ -262,6 +275,10 @@ string Sistema::list_participants(int id) {
   return "";
 }
 
+/*
+B1.1 0,8
+- Quando eu tento listar os canais de um usuário logado ou inexistente o sistema exibe como se fosse o usuário de id 1. 20% a menos
+*/
 string Sistema::list_channels(int id) {
 
   auto user = iterador(usuariosLogados, id);
@@ -288,6 +305,9 @@ string Sistema::list_channels(int id) {
   return "";
 }
 
+/*
+B1.2 ok
+*/
 string Sistema::create_channel(int id, const string nome) {
 
   auto user = iterador(usuariosLogados, id);
@@ -318,6 +338,10 @@ string Sistema::create_channel(int id, const string nome) {
   return "canal de texto criado";
 }
 
+/*
+B2.3 0.8
+- Quando eu faço enter-channel de um usuário não logado ou inexistente dá segfault. 20% a menos
+*/
 string Sistema::enter_channel(int id, const string nome) {
 
   auto user = iterador(usuariosLogados, id);
@@ -348,6 +372,9 @@ string Sistema::enter_channel(int id, const string nome) {
   return "Canal de Texto não encontrado";
 }
 
+/*
+B1.4 ok
+*/
 string Sistema::leave_channel(int id) {
 
   auto user = iterador(usuariosLogados, id);
@@ -376,7 +403,9 @@ string Sistema::leave_channel(int id) {
 
   return "Usuário não está em um canal de texto";
 }
-
+/*
+B2.1 ok
+*/
 string Sistema::send_message(int id, const string mensagem) {
 
   auto user = iterador(usuariosLogados, id);
@@ -405,6 +434,10 @@ string Sistema::send_message(int id, const string mensagem) {
   return "Usuário não está no canal";
 }
 
+/*
+B2.2 0,8
+- Quando eu tento listar mensagens de um usuário não logado ou inexistente dá segfault. 20% a menos
+*/
 string Sistema::list_messages(int id) {
 
   auto user = iterador(usuariosLogados, id);

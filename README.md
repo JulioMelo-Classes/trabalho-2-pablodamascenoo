@@ -27,7 +27,7 @@ Para executar o programa, dentro da pasta build digite o seguinte comando:
 Após isso digite os comandos do concordo seguidos de ENTER.
 
 ## Testes
-
+<!--como você não documentou ou fez qualquer caso de teste a mais, vou considerar 0 neste quesito!-->
 Ao invés de executar o programa digitando linha a linha, execute a sequência de testes presentes no arquivo comandos_teste.txt pelo seguinte comando ainda dentro da pasta build:
 ```console
 ./concordo < ../comandos_teste.txt

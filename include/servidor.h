@@ -7,6 +7,11 @@
 #include "canaltexto.h"
 #include "usuario.h"
 
+/*
+Cp2 ok
+
+Documentação 0,8, faltou documentar os atributos
+*/
 class Servidor{
 	/*
 		Botar os métodos em um arquivo cpp
